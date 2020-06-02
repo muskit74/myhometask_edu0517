@@ -14,7 +14,17 @@
 •	Выведенный текст должен содержать 5 строк.
 •	Число в каждой новой строке должно быть больше предыдущего.
 •	Выводимый текст должен соответствовать заданию.*/
+public class Main {
+    public static void main(String[] args) {
+        int sum = 0;
+        for (int i = 0; i < 5; i++) {
+            sum = sum + i + 1;
+            System.out.println(sum);
+        }
+    }
+}
 
+/* решение через массив
 public class Main {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
@@ -24,4 +34,4 @@ public class Main {
             System.out.println(sum);
         }
     }
-}
+}*/
