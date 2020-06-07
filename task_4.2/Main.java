@@ -24,7 +24,7 @@ public class Main {
         Dog spikeDog = new Dog("Spike", 400, 200);
     }
 }
-public static class Mouse {
+    class Mouse {
     String name;
     int height;
     int tail;
@@ -35,7 +35,7 @@ public static class Mouse {
         this.tail = tail;    }}
 
 
-public static class Cat {
+    class Cat {
     String name;
     int height;
     int tail;
@@ -45,7 +45,7 @@ public static class Cat {
         this.height = height;
         this.tail = tail;    }}
 
-public static class Dog {
+    class Dog {
     String name;
     int height;
     int tail;
