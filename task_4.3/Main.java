@@ -10,13 +10,13 @@
 
 public class Main{
     public static void main(String[] args) {
-        Horse horse = new Horse("Конь","скаковой",3,100);
+        Horse horse = new Horse("Конь","скаковой");
         System.out.print(horse.getNickname()+" "+horse.getBreed()+": ");
         horse.run();
-        Pegasus pegasus = new Pegasus("Пегас","окрыленный",5,200);
+        Pegasus pegasus = new Pegasus("Пегас","окрыленный");
         System.out.print(pegasus.getNickname()+" "+pegasus.getBreed()+": ");
         pegasus.fly();
-            }
+    }
 }
 
 interface AnimalInterface{
@@ -27,32 +27,26 @@ interface AnimalInterface{
 abstract class Animal implements AnimalInterface{
     private String nickname;
     private String breed;
-    private int age;
-    private int velocity;
-
-    public Animal(String nickname, String breed, int age, int velocity) {
+    
+    public Animal(String nickname, String breed) {
         this.nickname = nickname;
-        this.breed = breed;
-        this.age = age;
-        this.velocity = velocity;    }
+        this.breed = breed;            }
     public String getNickname() { return nickname; }
     public String getBreed() { return breed; }
-    public int getAge() { return age; }
-    public int getVelocity() { return velocity; }
-            }
+    }
 
 class Horse extends Animal{
-    public Horse(String nickname, String breed, int age, int velocity) {
-        super(nickname, breed, age, velocity);
+    public Horse(String nickname, String breed) {
+        super(nickname, breed);
     }
     @Override
     public void run() { System.out.println("Игого, я поскакал(а)"); }
     public void fly() { };
-    }
+}
 
 class Pegasus extends Horse{
-    public Pegasus(String nickname, String breed, int age, int velocity) {
-        super(nickname, breed, age, velocity);
+    public Pegasus(String nickname, String breed) {
+        super(nickname, breed);
     }
     @Override
     public void run() { }
