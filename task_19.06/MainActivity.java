@@ -38,28 +38,25 @@ public class MainActivity extends AppCompatActivity {
         trueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionBank[currentIndex].isAnswerTrue())
-                    Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this,R.string.incorrect_toast,Toast.LENGTH_SHORT).show();
-
-                currentIndex = currentIndex + 1; //подумать как избежать ошибки выход за пределы массива
-                int question = questionBank[currentIndex].getTextResId();
-                questionTextView.setText(question);
+                checkAnswer(true);
             }
         });
         falseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (questionBank[currentIndex].isAnswerTrue())
-                    Toast.makeText(MainActivity.this,R.string.incorrect_toast,Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
-
-                currentIndex = currentIndex + 1; //подумать как избежать ошибки выход за пределы массива
-                int question = questionBank[currentIndex].getTextResId();
-                questionTextView.setText(question);
+                checkAnswer(false);
             }
         });
+
+    }
+
+    private void checkAnswer (boolean userAnswer){
+        if (questionBank[currentIndex].isAnswerTrue() == userAnswer)
+            Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(MainActivity.this,R.string.incorrect_toast,Toast.LENGTH_SHORT).show();
+        currentIndex = (currentIndex+1)%questionBank.length; //подумать как избежать ошибки выход за пределы массива
+        int question = questionBank[currentIndex].getTextResId();
+        questionTextView.setText(question);
     }
 }
